@@ -2,81 +2,66 @@ import random
 
 # Trip Greeting Message
 greeting_message = 'Thank you for using our Day Trip Generator to plan your upcoming day excursion.'
-print(greeting_message)
 
-# Destination Code Block
+# Lists Code Block
 # Created destination list and randomily selected destination
 trip_destinations = ['Provincetown, MA', 'Fort Lauderdale, FL', 'San Juan, PR', 'Fire Island, NY', 'Palm Springs, CA', 'Honolul, HI']
-selected_destination = random.randrange(len(trip_destinations))
-
 # Created destination list and randomily selected restaurants 
 best_restaurants = ['Crown & Anchor Restaurant', 'Heritage', 'Oasis Tapas & Lounge', 'The Blue Whale', 'Hunters Palm Springs', 'Bacchus Waikiki']
-selected_restaurant = random.randrange(len(best_restaurants))
-
 # Created destination list and randomily selected mode of transportation
-best_transportations = ['Walk', 'Electric Bike', 'Bus', 'Train', 'Yacht', 'Helicopter']
-selected_transportation = random.randrange(len(best_transportations))
-
+best_transportations = ['walking', 'the electric bike', 'the bus', 'the train', 'a yacht', 'a helicopter']
 # Created destination list and randomily selected entertainment 
-best_entertainments = ['Walking Tours', 'Segway Tours', 'Bus Tours', 'Cooking Classes', 'Amusement Parks', 'Theater']
-selected_entertainment = random.randrange(len(best_entertainments))
+best_entertainments = ['walking tours', 'segway tours', 'bus tours', 'cooking classes', 'amusement parks', 'theater']
 
-print(f'For your Summer Day Trip excursion we have selected {trip_destinations[selected_destination]} for your destination, {best_restaurants[selected_restaurant]} for your perfect meal, {best_transportations[selected_transportation]} as the best way to travel around town, and {best_entertainments[selected_entertainment]} as a fun day activity. Are you excited about the selections that we made? ')
+# Selected Options
+destination = random.choice(trip_destinations)
+restaurant = random.choice(best_restaurants)
+transportation = random.choice(best_transportations)
+entertainment = random.choice(best_entertainments)
 
-# Function for user input
+# Day Trip Greeting
+day_trip = (f' For your trip, we have selected {destination} for your destination, {restaurant} as the best place to eat, {transportation} as the best way to travel around town, and {entertainment} as a fun activity for the day. Do you like our choices? ')
+
+print(greeting_message + day_trip)
+
 confirm_choice = input('Please enter y/n to confirm these travel options. ')
 
-def user_choice(confirm_options):
-  while confirm_options != 'y':
-    selected_options = random.randrange([(len(trip_destinations)), (len(best_restaurants)), (len(best_transportations)), (len(best_entertainments))])
-    confirm_options = input(f'We are sorry that those options did not work for you. We have selected {selected_options} as another set of options for you. Does these options work for you? ')
+# Function for new destination
+def new_dest(confirm_choice):  
+  while confirm_choice != 'y':
+    destination = random.choice(trip_destinations)
+    confirm_choice = input(f'We are sorry that the previous option did not work for your. We have seleceted {destination} as another trip destination. Does this work for you? ')
   else:
-    print(f'You have selected {trip_destinations[selected_destination]} as the destination for your trip. You will be dining at the {best_restaurants[selected_restaurant]} during the course of the day. You will travel around town via {best_transportations[selected_transportation]}, and for fun you will do {best_entertainments[selected_entertainment]}. We hope that you enjoy the trip that we have planned for you.')
+    print(f'You have selected {destination} as the destination for your trip. ')
 
-user_choice(confirm_choice)
+new_dest(confirm_choice)
 
+# Function for new restaurant
+def new_restaurant(confirm_choice):  
+  while confirm_choice != 'y':
+    restaurant = random.choice(best_restaurants)
+    confirm_choice = input(f'We are sorry that the previous option did not work for your. We have seleceted {restaurant} as another place to eat. Does this work for you? ')
+  else:
+    print(f'You have selected {restaurant} as the best place to eat during your trip. ')
 
+new_restaurant(confirm_choice)
 
+# Function for new transportation
+def new_trans(confirm_choice):  
+  while confirm_choice != 'y':
+    transportation = random.choice(best_transportations)
+    confirm_choice = input(f'We are sorry that the previous option did not work for your. We have seleceted {transportation} as the best way to travel. Does this work for you? ')
+  else:
+    print(f'You have selected {transportation} as a way to get around. ')
 
+new_trans(confirm_choice)
 
+# Function for new entertaiment
+def new_entertainment(confirm_choice):  
+  while confirm_choice != 'y':
+    entertainment = random.choice(best_entertainments)
+    confirm_choice = input(f'We are sorry that the previous option did not work for your. We have seleceted {entertainment} as a fun activity to do. Does this work for you? ')
+  else:
+    print(f'You have selected {entertainment} as a fun activity for you to do while on your trip. ')
 
-
-
-
-
-
-
-
-
-
-
-
-
-# # Need four different lists
-
-# # List 1: Destination
-
-# random_destination = random.randrange(len(trip_destinations))
-
-# print(trip_destinations[random_destination])
-
-# print('')
-
-# # List 2: Restaurants
-
-
-# print(best_restaurants[random_restaurants])
-
-# print(' ')
-
-
-
-# print(best_way_to_get_around[random_transportation])
-
-# print('')
-
-
-
-# print(things_to_do[random_entertainment])
-
-# print('')
+new_entertainment(confirm_choice)
